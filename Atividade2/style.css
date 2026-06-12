@@ -1,0 +1,13 @@
+ h1 {
+     background-color: rgb(13, 228, 128);
+ }
+ #titulo-roxo{
+     background-color:  purple;
+ }
+ .titulo-rosa{
+     background-color: pink;
+ }
+ section{
+     background-color: aquamarine;
+     padding: 10px;
+ }
