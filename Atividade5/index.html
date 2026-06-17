@@ -12,13 +12,19 @@
     <main>
         <h1>Teste com o nosso querido e amado JS</h1>
         <div class="container">
+            <form>
+                <div>
+                    <label class="form-label" for="funcionario">Funcionário:</label>
+                    <input type="text" class="form-control p-2" id="funcionario" name="funcionario">
+                </div>
+                <p></p>
+                <button class="btn btn-primary p-1" onclick="imprimirNome()">Enviar dados</button>
+            </form>
             <script>
-                console.log("Olá, mundo!")
-                let funcionario 
-                window.alert("O seu tipo de dado, no momento está guardando:" +typeof(funcionario))
-                funcionario = "Emerson Moron Rosa"
-                window.alert("O seu tipo de dado, no momento está guardando:" +typeof(funcionario))
-                console.log(funcionario == null)
+                function imprimirNome(){
+                    window.alert("Seu formulário foi enviado")
+            }
+                
                 
             </script>
         </div>
