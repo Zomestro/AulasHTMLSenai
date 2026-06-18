@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Emerson Moron Rosa">    
+    <title>Gerador de Crachá</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+    <main>
+        <h1>Gerador de Crachá</h1>
+        <div class="container">
+            <form>
+                <div>
+                    <label class="form-label" for="nome">Nome do Empregado</label>
+                    <input type="text" class="form-control p-2" id="nome" name="nome">
+
+                    <label class="form-label" for="idade">Idade do empregado</label>
+                    <input type="number" class="form-control p-2" id="idade" name="idade">
+
+                    <label class="form-label" for="cargo">Cargo do Empregado</label>
+                    <input type="text" class="form-control p-2" id="cargo" name="cargo">
+
+                    <label class="form-label" for="departamento">Departamento do Empregado</label>
+                    <input type="text" class="form-control p-2" id="departamento" name="departamento">
+
+                    <label class="form-label" for="Tipo-acesso">Acesso restrito?</label>
+                    <input type="checkbox" class="form-check-input" id="Tipo-acesso" name="Tipo-acesso">
+
+                </div>
+                <button type="button" class="btn btn-primary p-1" onclick="imprimirNome()">Enviar dados</button>
+            </form>
+            <script src="avisos.js"></script>
+        </div>
+    </main>
+</body>
+</html>
