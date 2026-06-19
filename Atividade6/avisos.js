@@ -5,4 +5,5 @@
     const tipoAcesso = document.getElementById("Tipo-acesso").checked ? "R" : "--";
 
     window.alert("Crachá gerado com sucesso!\n\nNome: " + nome + "\nCargo: " + cargo + "\nDepartamento: " + departamento + "\nTipo de acesso: " + tipoAcesso);
+    window.location.reload();
 }
