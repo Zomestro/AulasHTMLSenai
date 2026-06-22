@@ -1,9 +1,32 @@
-    function imprimirNome() {
-    const nome = document.getElementById("nome").value;
-    const cargo = document.getElementById("cargo").value;
-    const departamento = document.getElementById("departamento").value;
-    const tipoAcesso = document.getElementById("Tipo-acesso").checked ? "R" : "--";
+function imprimirNome() {
+    let nome = document.getElementById("nome").value;
+    let idade = document.getElementById("idade").value;
+    let departamento = document.getElementById("departamento").value;
+    let temAcessoRestrito = document.getElementById("temAcessoRestrito").checked; // Retorna true ou false
 
-    window.alert("Crachá gerado com sucesso!\n\nNome: " + nome + "\nCargo: " + cargo + "\nDepartamento: " + departamento + "\nTipo de acesso: " + tipoAcesso);
-    window.location.reload();
+    if (nome == "sim"){
+        nome = true
+    }
+
+    console.log("====== DADOS DO CRACHÁ VIRTUAL ======");
+    console.log("Nome (String):", nome);
+    console.log("Idade (Number):", idade);
+    console.log("Departamento (String):", departamento);
+    console.log("Acesso Restrito (Boolean):", temAcessoRestrito);
+    console.log("=====================================");
+
+    window.alert(
+        "Cadastro finalizado com sucesso!\n\n" +
+        "DADOS DO CRACHÁ:\n" +
+        "Nome: " + nome + "\n" +
+        "Idade: " + idade + "\n" +
+        "Departamento: " + departamento + "\n" +
+        "Acesso Restrito: " + temAcessoRestrito
+    );
+
+    if (temAcessoRestrito) { /// se (verdadeiro)
+        window.location.href = "pages/gerente.html"
+    } else {
+        window.location.href = "pages/funcionario.html"
+    }
 }
