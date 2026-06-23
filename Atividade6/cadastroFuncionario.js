@@ -3,6 +3,19 @@ function cadastrarFuncionario() {
     let horas = document.getElementById("horas-funcionario").value;
     let cargo = document.getElementById("cargo-funcionario").value;
 
+    
+    let objetoFuncionario = {
+        nome: nome,
+        horas: horas,
+        cargo: cargo
+    }
+
+    let textoJSON = JSON.stringify(objetoFuncionario)
+
+    localStorage.setItem("dadoFuncionario", textoJSON)
+
+    document.getElementById("cargo-funcionario").innerText = cargo;
+
     if (nome.trim() === "" || cargo.trim() === "") {
         alert("Por favor, preencha todos os campos antes de cadastrar.");
         return;
@@ -10,7 +23,7 @@ function cadastrarFuncionario() {
 
     console.log("Cadastrando:", nome, horas, cargo);
 
-    let sessaoLista = document.getElementById("lista-funcionarios");
+    let sessaoLista = document.getElementById("lista-funcionario-conteudo");
     let cardFuncionario = document.createElement("div");
 
     cardFuncionario.style.border = "1px solid #ccc";
