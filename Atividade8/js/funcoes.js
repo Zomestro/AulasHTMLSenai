@@ -28,7 +28,7 @@ function multiplicacao() {
     salvarHistorico("Multiplicação",primeiroNumero, segundoNumero, resultado)
     }
 
-    function divisao() {
+function divisao() {
     let primeiroNumero = document.getElementById("primeiro-numero").value;
     let segundoNumero = document.getElementById("segundo-numero").value;
     let resultado = Number(primeiroNumero) / Number(segundoNumero);
@@ -37,7 +37,7 @@ function multiplicacao() {
 
     salvarHistorico("Divisão",primeiroNumero, segundoNumero, resultado)
 }
-function salvaHistorico(nomeDaFuncao, num1, num2, resultado) {
+function salvarHistorico(nomeDaFuncao, num1, num2, resultado) {
     console.log("Função: " + nomeDaFuncao);
     console.log("Primeiro Número: " + num1);
     console.log("Segundo Número: " + num2);
