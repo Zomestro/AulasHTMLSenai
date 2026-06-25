@@ -38,12 +38,80 @@ function divisao() {
     salvarHistorico("Divisão",primeiroNumero, segundoNumero, resultado)
 }
 function salvarHistorico(nomeDaFuncao, num1, num2, resultado) {
-    console.log("Função: " + nomeDaFuncao);
-    console.log("Primeiro Número: " + num1);
-    console.log("Segundo Número: " + num2);
-    console.log("Resultado: " + resultado);
-    
+    // Criar o objeto de entrada
+    const entrada = {
+        data: new Date().toISOString(),
+        operacao: nomeDaFuncao,
+        num1: Number(num1),
+        num2: Number(num2),
+        resultado: resultado
+    };
+
+    // Ler histórico existente do localStorage
+    const chave = "historicoCalc";
+    let historico = [];
+    try {
+        const texto = localStorage.getItem(chave);
+        if (texto) historico = JSON.parse(texto);
+    } catch (e) {
+        console.error("Erro ao ler histórico do localStorage:", e);
+        historico = [];
+    }
+
+    // Adicionar nova entrada e salvar
+    historico.push(entrada);
+    try {
+        localStorage.setItem(chave, JSON.stringify(historico));
+    } catch (e) {
+        console.error("Erro ao salvar histórico no localStorage:", e);
+    }
+
+    // Atualizar a exibição do histórico (se presente)
+    if (typeof atualizarListaHistorico === 'function') atualizarListaHistorico();
 }
+
+function carregarHistorico() {
+    atualizarListaHistorico();
+}
+
+function atualizarListaHistorico() {
+    const chave = "historicoCalc";
+    const listaEl = document.getElementById("lista-historico");
+    if (!listaEl) return;
+
+    let historico = [];
+    try {
+        const texto = localStorage.getItem(chave);
+        if (texto) historico = JSON.parse(texto);
+    } catch (e) {
+        console.error("Erro ao ler histórico:", e);
+        historico = [];
+    }
+
+    // Limpar e renderizar
+    listaEl.innerHTML = "";
+    if (historico.length === 0) {
+        const li = document.createElement('li');
+        li.innerText = 'Nenhuma operação no histórico.';
+        listaEl.appendChild(li);
+        return;
+    }
+
+    historico.slice().reverse().forEach(item => {
+        const li = document.createElement('li');
+        const data = new Date(item.data);
+        li.innerText = `${data.toLocaleString()} — ${item.operacao}: ${item.num1} e ${item.num2} = ${item.resultado}`;
+        listaEl.appendChild(li);
+    });
+}
+
+function limparHistorico() {
+    const chave = "historicoCalc";
+    localStorage.removeItem(chave);
+    atualizarListaHistorico();
+}
+
+document.addEventListener('DOMContentLoaded', carregarHistorico);
 
 
     
