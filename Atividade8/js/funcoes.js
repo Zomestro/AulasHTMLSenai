@@ -36,7 +36,39 @@ function divisao() {
     document.getElementById("resultado").innerText = resultado;
 
     salvarHistorico("Divisão",primeiroNumero, segundoNumero, resultado)
+
+    }
+
+function baseCalculo() {
+    let valorCompra = document.getElementById("valor-compra").value;
+    let cotacao = document.getElementById("cotacao").value;
+    let baseCalculo = Number(valorCompra) * Number(cotacao);
+
+    document.getElementById("baseCalculo").innerText = baseCalculo;
+
+    salvarHistorico("Base de Cálculo",valorCompra, cotacao, baseCalculo);
+
+    }
+
+function imposto() {
+    let total1 = 0;
+    let total2 = 0; 
+    let valorTotal = 0;
+    if (document.getElementById("valorCompra").value < 50) {
+        total1 = baseCalculo * 1.2;
+        valorTotal = total1;
+    } else {
+        total2 = baseCalculo * 1.2 * 1.9;
+        valorTotal = total2;
+
+    }
+
+    document.getElementById("valorTotal").innerText = valorTotal;
+
+    salvarHistorico("Compra total", valorCompra, cotacao, valorTotal);
+
 }
+
 function salvarHistorico(nomeDaFuncao, num1, num2, resultado) {
     // Criar o objeto de entrada
     const entrada = {

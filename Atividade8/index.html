@@ -16,6 +16,7 @@
         <label for="segundo-numero">Digite o segundo número:</label>
         <input type="number" id="segundo-numero">
         <br>
+        
   
         <button onclick="soma()">Soma</button>
         <button onclick="subtracao()">Subtração</button>
@@ -23,6 +24,20 @@
         <button onclick="divisao()">Divisão</button>
         <br>
         <p>Seu resultado é: <strong id="resultado"></strong></p>
+        
+        <section id="imposto">
+            <h3>Imposto</h3>
+            <label for="valor-compra">Digite o valor da compra:</label>
+            <input type="number" id="valor-compra">
+            <br>
+            <label for="cotacao">Digite a cotação do dólar:</label>
+            <input type="number" id="cotacao">
+            <br>
+            <button onclick="baseCalculo()">Base de Cálculo</button>
+            <button type="button" onclick="imposto()">Calcular Imposto</button>
+            <p>Sua base de cálculo é: <strong id="baseCalculo"></strong></p>
+            <p>O valor total da sua compra é: <strong id="valorTotal"></strong></p>
+        </section>
 
         <section id="historico">
             <h3>Histórico</h3>
